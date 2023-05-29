@@ -1,0 +1,84 @@
+<landmark></landmark>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 200px 0;
+    justify-items: center;  
+    align-items: flex-start; 
+">
+    <h1 style=
+        "color:rgb(255,221,47); 
+        font-size: 50px; 
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        align-self: center;">
+        REGISTRO DE DENUNCIA
+    </h1>
+    <div
+        style="
+        display: flex;">
+    <h1 style=
+        "color:rgb(0, 120, 212);
+        font-size: 30px; 
+        margin-right: 10px;">
+        PASO 1: 
+    </h1>
+    <h1 style=
+        "color:rgb(0, 0, 0); 
+        font-size: 30px;">
+        Datos de la denuncia
+    </h1>
+    </div>
+    <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+        style="width: 25%; margin-bottom: 10px;">
+        {{ selectedCompany.getNombre || 'Empresa / Organización'}}
+        </button>
+    <ul class="dropdown-menu">
+        <li *ngFor="let cmpny of companyList"><a class="dropdown-item"
+        (click)="OnSelectedCompany(cmpny)">{{ cmpny.getNombre }}</a></li>
+    </ul>
+    <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+        style="width: 25%; margin-bottom: 10px;">
+        {{ selectedCountry.getNombre|| 'País'}}
+        </button>
+    <ul class="dropdown-menu">
+        <li *ngFor="let cntry of countryList"><a class="dropdown-item"
+        (click)="OnSelectedCountry(cntry)">{{ cntry.getNombre }}</a></li>
+    </ul>
+    <button class="btn btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+    style="width: 25%; margin-bottom: 10px;"
+    >
+        {{ selectedState.getNombre|| 'Estado'}}
+    </button>
+    <ul class="dropdown-menu">
+        <li *ngFor="let stt of stateList"><a class="dropdown-item"
+        (click)="OnSelectedState(stt)">{{ stt.getNombre }}</a></li>
+    </ul>
+    <b style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px; ">
+        Número de centro
+    </b>
+    <div class="mb-3"style="width: 25%;">
+        <form [formGroup]="rr1Form">
+        <input formControlName="numCentro" type="text" 
+        maxlength="15"
+        class="form-control" (paste)="(false)"
+        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+        </form>
+    </div>
+    <button 
+        type="button" 
+        class="btn btn-lg"
+        style="width: 25%;"
+        (click)="OnNextStepButton('rr2')">
+        Siguiente
+    </button>
+    <button 
+        type="button" 
+        class="btn btn-lg"
+        style="width: 25%; align-self: flex-end; margin-top: -50px;"
+        (click)="clickButton('home')">
+        Cancelar
+    </button>
+</div>

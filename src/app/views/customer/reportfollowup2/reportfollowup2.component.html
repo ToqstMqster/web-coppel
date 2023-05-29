@@ -1,0 +1,70 @@
+<landmark></landmark>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 200px 0;
+    justify-items: center;
+    align-items: center;
+">
+    <h1 style=
+        "color:rgb(255,221,47);
+        font-size: 50px;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        margin-bottom: 20px;">
+        SEGUIMIENTO DE DENUNCIA
+    </h1>
+    
+    <div
+        style="
+        display: flex;">
+    <h1 style=
+        "color:rgb(0, 120, 212);
+        font-size: 20px; 
+        margin-right: 10px;">
+        Folio: 
+    </h1>
+    <h1 style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px;">
+       {{ report.getFolio }}
+    </h1>
+    </div>
+
+    <b style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px; ">
+        Historial de comentarios
+    </b>
+
+    <textarea class="form-control" rows="3"
+    [placeholder]="report.getComentarios"
+    style="width: 25%; margin-bottom: 10px;"
+    disabled ></textarea>
+
+    <b style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px; ">
+        Estatus
+    </b>
+
+    <input 
+        type="text"
+        maxlength="50"
+        class="form-control" (paste)="(false)"
+        [placeholder]="report.getEstatus"
+        style="width: 25%; margin-bottom: 20px;"
+        disabled
+    >
+
+    <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        style="width: 25%;"
+        (click)="clickButton('home')">
+        Entendido
+    </button>
+
+</div>
+
+

@@ -1,0 +1,105 @@
+<landmark></landmark>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 200px 0;
+    justify-items: center;
+    align-items: flex-start;
+">
+    <h1 style=
+        "color:rgb(255,221,47);
+        font-size: 50px;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        align-self: center;">
+        REGISTRO DE DENUNCIA
+    </h1>
+    <div
+        style="
+        display: flex;">
+    <h1 style=
+        "color:rgb(0, 120, 212);
+        font-size: 30px;
+        margin-right: 10px;">
+        PASO 2:
+    </h1>
+    <h1 style=
+        "color:rgb(0, 0, 0);
+        font-size: 30px;">
+        Contacto
+    </h1>
+    </div>
+
+    <b style=
+        "color:rgb(0, 0, 0);
+        font-size: 20px; ">
+        ¿Quieres permanecer anonimo?
+    </b>
+
+    <div style="
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin: 10px;
+    ">
+        <div [formGroup]="rr2Form">
+            <label class="..-radio-box"  style="margin-right: 15px;">
+            <input type="radio" name="option" value="S" (click)="clickOption(true)"  checked/>
+                Si
+            </label>
+            <label class="-radio-box">
+            <input type="radio" name="option" value="N" (click)="clickOption(false)"  [checked]="!isSelected" />
+                No
+            </label>
+        </div>
+        <form [formGroup]="rr2Form">
+        <div *ngIf="!isSelected"
+            style="    
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;">
+
+                <input 
+                formControlName="nomCompleto"
+                type="text"
+                maxlength="50"
+                class="form-control" (paste)="(false)"
+                placeholder="Nombre Completo"
+                style="margin-right: 30px;">
+
+
+                
+                <input 
+                formControlName="correo"
+                type="email"
+                maxlength="50"
+                class="form-control" (paste)="(false)" placeholder="Correo electrónico"
+                style="margin-right: 30px;">
+                
+                <input 
+                formControlName="tel"
+                type="text"
+                maxlength="10"
+                class="form-control" (paste)="(false)"
+                onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                placeholder="Teléfono">
+            </div>
+        </form>
+    </div>
+
+    <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        style="width: 25%;"
+        (click)="OnNextStepButton('rr3')">
+        Siguiente
+    </button>
+    <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        style="width: 25%; align-self: flex-end; margin-top: -50px;"
+        (click)="clickButton('rr1')">
+        Atras
+    </button>
+</div>

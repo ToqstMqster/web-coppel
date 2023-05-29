@@ -1,0 +1,94 @@
+<app-side-bar></app-side-bar>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 15%;
+    justify-items: center;  
+    align-items: flex-start;
+    width: 70%;
+    height: 500px;
+">
+    <h1 style=
+        "color:rgb(0, 0, 0); 
+        font-size: 50px; 
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        margin-top: 15px;
+        margin-bottom: 15px;
+        ">
+        DENUNCIAS
+    </h1>
+
+    <!-- Caja de denuncias -->
+    <div style="display: flex;width: 100%; margin-bottom: 5px;">
+        <!-- Detalle denuncia -->
+        <div style="background-color: rgb(227, 225, 230); width: 50%; 
+            border-radius: 5px; box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);">
+            <div style="display: flex; flex-direction: column; margin-left: 10px; margin-top: 10px;">
+                <b style="font-size: 20px;" >Detalle denuncia</b>
+                <div style="display: flex;"><b>Folio:</b><p>{{ report.getFolio }}</p></div>
+                <div style="display: flex;"><b>Empresa:</b><p>{{ report.getEmpresa.getNombre }}</p></div>
+                <div style="display: flex;"><b>País:</b><p>{{ report.getPais.getNombre }}</p></div>
+                <div style="display: flex;"><b>Estado:</b><p>{{ report.getEstado.getNombre }}</p></div>
+                <div style="display: flex;"><b>Núm. Centro:</b><p>{{ report.getNumCentro }}</p></div>
+                <div *ngIf="report.getNomCompleto">
+                    <div style="display: flex;"><b>Nombre:</b><p>{{ report.getNomCompleto }}</p></div>
+                    <div style="display: flex;"><b>Correo:</b><p>{{ report.getCorreo }}</p></div>
+                    <div style="display: flex;"><b>Teléfono:</b><p>{{ report.getTelefono }}</p></div>
+                </div>
+                <div style="display: flex;"><b>Descripción: </b><p>{{ report.getDescripcion }}</p></div>
+                <div style="display: flex;"><b>Fecha:</b>
+                    <p>{{ formFecha.getDate() }}/</p>
+                    <p>{{ formFecha.getMonth() + 1}}/</p>
+                    <p>{{ formFecha.getFullYear() }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comentarios y estatus -->
+        <div style="background-color: rgb(227, 225, 230); width: 50%; margin-left: 50px;
+        border-radius: 5px; box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);">
+            <form [formGroup]="form" style="display: flex; flex-direction: column; margin: 10px;">
+                <b style="font-size: 20px;" >Comentarios</b>
+                <textarea class="form-control" rows="7" formControlName="comentarios"
+                    style="margin-bottom: 10px;"></textarea>
+                <div style="display: flex; margin-top: 20px; margin-bottom: 20px;">
+                <label class="..-radio-box"  style="margin-right: 15px;">
+                    <input type="radio" name="option" value="F" (click)="clickOption('Finalizada')"  [checked]=false  />
+                        Finalizada
+                    </label>
+                    <label class="-radio-box">
+                    <input type="radio" name="option" value="N" (click)="clickOption('Cancelada')"  [checked]=false/>
+                        Cancelada
+                </label>
+                </div>
+                <button
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    id="liveToastBtn"
+                    (click)="sendReport('ml')">
+                    Hecho
+                </button>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- Flexbox container for aligning the toasts -->
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100" id="liveToast">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    position: fixed;
+    width: 20%;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);
+    background: rgb(0, 96, 169);
+    align-items: center;  
+}
+.btn{
+    background-color: rgb(255,221,47);
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);
+    color: #000000;
+}
+.btn:hover{
+    background-color: rgb(255, 234, 130);
+}

@@ -1,0 +1,37 @@
+<app-side-bar></app-side-bar>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 15%;
+    justify-items: center;  
+    align-items: flex-start;
+    width: 500px;
+    height: 500px;
+">
+    <h1 style=
+        "color:rgb(0, 0, 0); 
+        font-size: 50px; 
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        margin-top: 15px;
+        margin-bottom: 15px;
+        ">
+        DENUNCIAS
+    </h1>
+
+    <!-- Caja de denuncias -->
+    <div style="display: flex;  flex-direction: column; width: 100%; margin-bottom: 20px;" *ngFor="let denuncia of user.getListaDenuncias">
+        <!-- Una denuncia  -->
+        <div style="display: flex; background-color: rgb(227, 225, 230); 
+            width: 100%; justify-content: space-around; align-items: center;
+            border-radius: 5px; box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);
+            ">
+            <h5 class="card-title">{{ denuncia.getFolio }}</h5>
+            <h5 class="card-title">-</h5>
+            <p style="margin-top: 20px;" class="card-text">{{ denuncia.getEmpresa.getNombre }}</p>
+            <a class="btn btn-primary" (click)="clickButton('cd', denuncia.getFolio )">Ver detalle</a>
+        </div>
+
+    </div>
+</div>
+

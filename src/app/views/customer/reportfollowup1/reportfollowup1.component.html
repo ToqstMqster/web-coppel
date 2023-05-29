@@ -1,0 +1,55 @@
+<landmark></landmark>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 200px 0;
+    justify-items: center;
+    align-items: center;
+">
+    <h1 style=
+        "color:rgb(255,221,47);
+        font-size: 50px;
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        margin-bottom: 20px;">
+        SEGUIMIENTO DE DENUNCIA
+    </h1>
+    
+    
+    <b style=
+        "color:rgb(0, 0, 0);
+        font-size: 20px; ">
+        Folio
+    </b>
+    <form [formGroup]="rf1Form"
+        style="width: 25%;">
+    <input 
+        formControlName="folio"
+        type="text"
+        maxlength="5"
+        class="form-control" (paste)="(false)"
+        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+    </form>
+    <b style=
+        "color:rgb(0, 0, 0);
+        font-size: 20px; ">
+        Contraseña
+    </b>
+    <form [formGroup]="rf1Form"
+    style="width: 25%;">
+    <input type="password"
+        formControlName="psswrd"
+        maxlength="50"
+        minlength="8"
+        class="form-control"
+        style="margin-bottom: 20px;">
+    </form>
+    <button
+        type="button"
+        class="btn btn-primary btn-lg"
+        style="width: 25%;"
+        (click)="clickButton('rf2')">
+        Siguiente
+    </button>
+</div>
+

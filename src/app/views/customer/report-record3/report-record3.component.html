@@ -1,0 +1,108 @@
+<landmark></landmark>
+<div style="
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 200px 0;
+    justify-items: center;  
+    align-items: flex-start; 
+">
+    <h1 style=
+        "color:rgb(255,221,47); 
+        font-size: 50px; 
+        text-shadow: 2px 2px rgb(0, 0, 0, 0.1);
+        align-self: center;">
+        REGISTRO DE DENUNCIA
+    </h1>
+    <div
+        style="
+        display: flex;">
+    <h1 style=
+        "color:rgb(0, 120, 212);
+        font-size: 30px; 
+        margin-right: 10px;">
+        PASO 3: 
+    </h1>
+    <h1 style=
+        "color:rgb(0, 0, 0); 
+        font-size: 30px;">
+        Detalle de denuncia
+    </h1>
+    </div>
+    <b style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px; ">
+        Detalle de denuncia
+    </b>
+
+    
+    <form [formGroup]="rr3Form" style="width: 25%;">
+    <textarea class="form-control" rows="3" formControlName="detalle"></textarea>
+    </form>
+
+    <b style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px; ">
+        Fecha en que sucedió
+    </b>
+
+    <ngb-datepicker #dp [(ngModel)]="model"></ngb-datepicker>
+    
+    <b style=
+        "color:rgb(0, 0, 0); 
+        font-size: 20px; ">
+        Contraseña
+    </b>
+
+    <form [formGroup]="rr3Form" style="width: 25%;">
+    <input type="password"
+        formControlName="password"
+        maxlength="50"
+        minlength="8"
+        class="form-control" (paste)="(false)"
+        placeholder="Contraseña"
+        style="margin-bottom: 10px;">
+
+    <input type="password"
+        formControlName="confirmPassword"
+        maxlength="50"
+        minlength="8"
+        class="form-control" (paste)="(false)"
+        placeholder="Confirmar contraseña"
+        style="margin-bottom: 30px;">
+    </form>
+    <button 
+        type="button" 
+        class="btn btn-lg"
+        style="width: 25%;"
+        (click)="sendReport()">
+        Enviar reporte
+    </button>
+    <button 
+        type="button" 
+        class="btn btn-lg"
+        style="width: 25%; align-self: flex-end; margin-top: -50px;"
+        (click)="clickButton('rr2')">
+        Atras
+    </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Denuncia enviada</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Recuerde su folio </p> <b> {{this.newFolio}} </b> <p>para próximas consultas</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
